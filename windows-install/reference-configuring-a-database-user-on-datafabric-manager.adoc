@@ -1,0 +1,14 @@
+---
+permalink: windows-install/reference-configuring-a-database-user-on-datafabric-manager.html 
+sidebar: sidebar 
+keywords: configuring, database, user, active iq, data, center, manager 
+summary: Você deve criar um usuário de banco de dados em versões anteriores a 6,0 do Gerenciador de dados do Active IQ para configurar o acesso somente leitura do banco de dados do Gerenciador de data center do Active IQ ao OnCommand Workflow Automation. 
+---
+= Configurando um usuário de banco de dados no Gerenciador de data center do Active IQ
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você deve criar um usuário de banco de dados em versões anteriores a 6,0 do Gerenciador de dados do Active IQ para configurar o acesso somente leitura do banco de dados do Gerenciador de data center do Active IQ ao OnCommand Workflow Automation.

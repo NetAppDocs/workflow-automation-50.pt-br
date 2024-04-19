@@ -1,0 +1,34 @@
+---
+permalink: windows-install/task-access-oncommand-workflow-automation.html 
+sidebar: sidebar 
+keywords: access, oncommand workflow automation 
+summary: 'Você pode acessar o OnCommand Workflow Automation (WFA) através de um navegador da Web a partir de qualquer sistema que tenha acesso ao servidor WFA.' 
+---
+= Acesse o OnCommand Workflow Automation
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode acessar o OnCommand Workflow Automation (WFA) através de um navegador da Web a partir de qualquer sistema que tenha acesso ao servidor WFA.
+
+.O que você vai precisar
+Você deve ter instalado o Adobe Flash Player para o seu navegador.
+
+.Passos
+. Abra um navegador da Web e insira um dos seguintes na barra de endereços:
++
+** `+https://wfa_server_ip+`
++
+`wfa_server_ip` É o endereço IP (endereço IPv4 ou IPv6) ou o nome de domínio totalmente qualificado (FQDN) do servidor WFA.
+
+** Se você estiver acessando O WFA no servidor WFA: `+https://localhost/wfa+` Se você tiver especificado uma porta não padrão para O WFA, você deve incluir o número da porta da seguinte forma:
+** `+https://wfa_server_ip:port+`
+** `+https://localhost:port+` _Port_ é o número da porta TCP que você usou para o servidor WFA durante a instalação.
+
+
+. Na seção entrar, insira as credenciais do usuário administrativo que você inseriu durante a instalação.
+. *Opcional:* no menu *Configurações* > *Configuração*, configure as credenciais e uma fonte de dados.
+. *Opcional:* Marque a GUI da Web DO WFA para facilitar o acesso.
+

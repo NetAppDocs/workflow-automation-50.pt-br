@@ -1,0 +1,22 @@
+---
+permalink: windows-install/task-create-a-support-case-for-wfa.html 
+sidebar: sidebar 
+keywords: create, support, case, oncommand, workflow automation 
+summary: 'Você pode criar casos de suporte para problemas do OnCommand Workflow Automation (WFA) que exigem assistência do suporte técnico. Você deve usar o modelo de triagem técnica para criar um caso de suporte.' 
+---
+= Crie um caso de suporte para o OnCommand Workflow Automation
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode criar casos de suporte para problemas do OnCommand Workflow Automation (WFA) que exigem assistência do suporte técnico. Você deve usar o modelo de triagem técnica para criar um caso de suporte.
+
+.Sobre esta tarefa
+O modelo de triagem técnica para WFA fornece todas as informações necessárias para criar um caso de suporte. Você deve usar as perguntas e informações no modelo de triagem técnica para construir seu problema, o que ajuda a melhorar o tempo necessário para a resolução do seu caso.
+
+.Passos
+. Acesse o modelo de triagem técnica WFA.
+. Use o modelo para construir e enviar seu caso para o suporte técnico.
+

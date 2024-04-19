@@ -1,0 +1,29 @@
+---
+permalink: windows-install/task-add-an-upgraded-unified-manager-server-data-source.html 
+sidebar: sidebar 
+keywords: add, upgraded, data center manager, server, data, source 
+summary: 'Se o servidor do Data Center Manager (5.x ou 6.x) for adicionado como fonte de dados ao WFA e o servidor do Data Center Manager for atualizado, você deverá adicionar o servidor atualizado do Data Center Manager como fonte de dados porque os dados associados à versão atualizada não são preenchidos NO WFA a menos que sejam adicionados manualmente como fonte de dados.' 
+---
+= Adicione um servidor atualizado do Data Center Manager como fonte de dados
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se o servidor do Data Center Manager (5.x ou 6.x) for adicionado como fonte de dados ao WFA e o servidor do Data Center Manager for atualizado, você deverá adicionar o servidor atualizado do Data Center Manager como fonte de dados porque os dados associados à versão atualizada não são preenchidos NO WFA a menos que sejam adicionados manualmente como fonte de dados.
+
+.Passos
+. Faça login na GUI da Web DO WFA como administrador.
+. Clique em *Configurações* e em *Configuração*, clique em *fontes de dados*.
+. Clique image:../media/new_wfa_icon.gif["Novo ícone"]na barra de ferramentas.
+. Na caixa de diálogo *Nova fonte de dados*, selecione o tipo de fonte de dados necessária e insira um nome para a fonte de dados e o nome do host.
++
+Com base no tipo de fonte de dados selecionado, os campos porta, nome de usuário, senha e tempo limite podem ser preenchidos automaticamente com os dados padrão, se disponíveis. Você pode editar essas entradas conforme necessário.
+
+. Clique em *Salvar*.
+. Selecione a versão anterior do servidor Data Center Manager e clique image:../media/delete_wfa_icon.gif["Eliminar ícone"] na barra de ferramentas.
+. Na caixa de diálogo de confirmação *Delete Data Source Type* (Excluir tipo de fonte de dados*), clique em *Yes* (Sim).
+. *Opcional:* na tabela *fontes de dados*, selecione a fonte de dados e clique image:../media/acquire_now_wfa_icon.gif["Ícone adquirir agora"]na barra de ferramentas.
+. Verifique o status da aquisição de dados na tabela *Histórico*.
+

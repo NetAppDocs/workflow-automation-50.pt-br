@@ -1,0 +1,135 @@
+---
+permalink: windows-install/task-configure-wfa-with-mscs-using-configuration-scripts.html 
+sidebar: sidebar 
+keywords: configure, workflow, automation, mscs 
+summary: 'Depois de instalar o Workflow Automation (WFA) no Microsoft Cluster Server (MSCS), você deve configurar O WFA para alta disponibilidade no MSCS usando scripts de configuração.' 
+---
+= Configurar a automação do fluxo de trabalho com MSCS
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Depois de instalar o Workflow Automation (WFA) no Microsoft Cluster Server (MSCS), você deve configurar O WFA para alta disponibilidade no MSCS usando scripts de configuração.
+
+.O que você vai precisar
+Você deve ter criado um backup do WFA.
+
+.Passos
+. Faça login no primeiro nó do cluster MSCS e execute as seguintes etapas:
++
+[cols="2*"]
+|===
+| Para... | Faça isso... 
+
+
+ a| 
+Windows 2012
+ a| 
+.. No Gerenciador de Cluster de failover, clique com o botão direito do Mouse em *funções de serviço*.
+.. Selecione *Create Empty Service role* e renomeie a função para "WFA".
+.. Adicione o recurso de endereço IP à função "WFA" recém-criada:
++
+... No Gerenciador de Cluster de failover, clique com o botão direito do Mouse na função "WFA" recém-criada.
+... Selecione *recurso* > *mais recursos* > *Endereço IP*.
+... Configure o endereço IP do cluster.
+
+
+
+
+
+
+ a| 
+Windows 2008
+ a| 
+.. No Gerenciador de Cluster de failover, clique com o botão direito em *Serviços e aplicativos*.
+.. Clique em *More actions* > *Create Empty Service or Application* e renomeie o serviço para "WFA".
+.. Adicione o recurso de endereço IP ao serviço "WFA" recém-criado:
++
+... No Gerenciador de Cluster de failover, clique com o botão direito do Mouse no recém-criado serviço "'WFA'".
+... Selecione *Adicionar um recurso* > *mais recursos* > *Adicionar endereço IP*.
+... Configure o endereço IP do cluster.
+
+
+
+
+|===
+. No prompt de comando, execute o `ha_setup.pl` script para mover os dados DO WFA para o local compartilhado e para configurar O WFA com MSCS para failover: `perl ha_setup.pl --first [-t type_of_cluster_vcs] [-g cluster_group_name] [-i IP_address_resource_name] [-n cluster_name] [-k shared_disk_resource_name] [-f shared_drive_path]`
++
+O script está disponível em `WFA_install_location\WFA\bin\ha\.`
+
++
+*Exemplo*
+
++
+`perl ha_setup.pl --first -t mscs -g WFA -i "Cluster IP Address" -n wfa_cluster -k "Cluster Disk 2" -f E:\`
+
+. Verifique se os recursos do MSCS são criados.
+. Pare os serviços WFA do Gerenciador de Cluster de failover:
++
+|===
+
+
+| Para... | Faça isso... 
+
+
+ a| 
+Windows 2012
+ a| 
+.. Selecione *funções de serviço* e, em seguida, selecione a função "WFA" recém-criada.
+.. No painel recurso, clique com o botão direito do Mouse em *na_WFA_DB* e selecione *Take Offline*.
+.. No painel recurso, clique com o botão direito do Mouse em *na_WFA_SRV* e selecione *Take Offline*.
+
+
+
+
+ a| 
+Windows 2008
+ a| 
+.. Selecione *Serviços e aplicativos* e, em seguida, selecione o serviço "WFA" recém-criado.
+.. No painel outros recursos, clique com o botão direito do Mouse em *na_WFA_DB* e selecione *Take this resource off-line*.
+.. No painel outros recursos, clique com o botão direito do Mouse em *na_WFA_SRV* e selecione *Take this resource off-line*.
+
+
+|===
++
+O serviço de banco de dados WFA e o serviço de servidor WFA devem ser offline. Os serviços WFA não devem ser interrompidos dos serviços do Windows.
+
+. Mova manualmente os recursos DO WFA para o nó secundário.
+. Verifique se o disco compartilhado está acessível a partir do segundo nó.
+. No prompt de comando, execute o `ha_setup.pl` script no nó secundário do cluster para configurar O WFA para usar os dados do local compartilhado: `perl ha_setup.pl --join [-t type_of_cluster_mscs] [-f shared_drive_path]`
++
+O `ha_setup.pl` script está disponível em `WFA_install_location\WFA\bin\ha\.`
+
++
+*Exemplo*
+
++
+`perl ha_setup.pl --join -t mscs -f E:\`
+
+. No Gerenciador de Cluster de failover, coloque os recursos DO WFA online:
++
+[cols="2*"]
+|===
+| Para... | Faça isso... 
+
+
+ a| 
+Windows 2012
+ a| 
+.. Clique com o botão direito do Mouse na função recém-criada "WFA" e selecione *Start role*. A função deve estar no status Running (execução) e os recursos individuais devem estar no estado Online (Online).
+
+
+
+
+ a| 
+Windows 2008
+ a| 
+.. Clique com o botão direito do rato no serviço "WFA" recém-criado e, em seguida, selecione *bring this Service or application on-line*. O serviço deve estar no `Running` status, e os recursos individuais devem estar `Online` no estado.
+
+
+|===
+. Mude manualmente para o segundo nó do cluster MSCS.
+. Verifique se os serviços DO WFA são iniciados corretamente no segundo nó do cluster.
+

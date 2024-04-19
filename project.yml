@@ -1,0 +1,22 @@
+---
+settings:
+  name: OnCommand Workflow Automation 5.0
+  downlevel: true
+  internal:
+    pdf_enabled: true
+  prod:
+    pdf_enabled: true
+    harmony_enabled: false
+  langs: pt-br,us-en,ja-jp,ko-kr,zh-cn,zh-tw,de-de,es-es,fr-fr,it-it
+sidebar:
+  entries:
+  - title: Documentos do OnCommand Workflow Automation 5,0
+    url: "/index.html"
+  - title: Notas de versão
+    url: "/reference-releasenotes.html"
+  - section: rhel-install
+  - section: windows-install
+  - section: help
+  - section: workflows
+  - title: Avisos legais
+    url: "/legal-notices.html"

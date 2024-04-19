@@ -1,0 +1,45 @@
+---
+permalink: windows-install/task-back-up-oncommand-workflow-automation-using-powershell-script.html 
+sidebar: sidebar 
+keywords: back up, wfa, database, powershell, script 
+summary: 'Se você quiser fazer backup do banco de dados do OnCommand Workflow Automation (WFA) com frequência, use o script do PowerShell fornecido com o pacote de instalação DO WFA.' 
+---
+= Faça backup do banco de dados WFA usando o script PowerShell
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se você quiser fazer backup do banco de dados do OnCommand Workflow Automation (WFA) com frequência, use o script do PowerShell fornecido com o pacote de instalação DO WFA.
+
+.O que você vai precisar
+Você precisa ter credenciais de usuário de administrador, credenciais de arquiteto ou credenciais de usuário de backup.
+
+.Sobre esta tarefa
+Para obter mais informações, consulte a documentação do REST.
+
+. Abra o Windows PowerShell como um usuário admin e faça backup do banco de dados WFA:
++
+`<WFA_install_location\WFA\bin\Backup.ps1> -User user_name -Password password -Path backup_file_path`
+
++
+** `WFA_install_location` É o diretório de instalação DO WFA.
+** _user_name_ é o nome de usuário do usuário admin, arquiteto ou usuário de backup.
+** _password_ é a senha do usuário admin, arquiteto ou usuário de backup.
+** `backup_file_path` é o caminho de diretório completo para o arquivo de backup.
++
+
+NOTE: O arquivo de backup é um arquivo zip com o nome no seguinte formato  `wfa_backup_servername_.zip`
+
+** `wfa_backup_` é uma parte fixa do nome do arquivo, que é o nome do servidor de backup.
+** `servername` É extraído do ambiente do servidor Windows.
+** `_.zip` é uma parte fixa do nome do arquivo. *Exemplo*
+`C:\Program Files\NetApp\WFA\bin\Backup.ps1 -User backup -Password MyPassword123 -Path C:\WFA_backups\backup_10_08_12`
++
+Após a conclusão da cópia de segurança, é apresentada a seguinte saída: `C:\WFA_backups\backup_10__08_12\wfa_backup_myserver__.zip`
+
+
+
+. *Opcional:* Verifique se o arquivo de backup foi criado no local especificado.
+
